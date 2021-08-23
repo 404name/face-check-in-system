@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>注册</title>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+<main class="container">
+    <div class="container">
+        <div class="alert alert-success" role="alert">已录入人脸列表 <span style="float: right;"><a href="/register">注册人脸</a></span></div>
+        <div class="alert alert-success" role="alert">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <select class="form-control" id="termName"  placeholder="termId">
+                    <option>获取中</option>
+                    <option>2021获取中</option>
+                </select>
+            </div>
+        </div>
+        <div class="row clearfix" style="opacity: 0.8;">
+            <div class="col-md-6 column">
+                <video id="video" width="500px" height="500px" class="border" autoplay="autoplay"></video>
+            </div>
+            <div class="col-md-6 column">
+                <canvas id="canvas" width="500px" height="500px" class="border"></canvas>
+            </div>
+
+        </div>
+        <br/>
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+                <button class="btn btn-success btn-block" onclick="openMedia()">开启摄像头</button>
+
+            </div>
+            <div class="col-md-4 column">
+                <button class="btn btn-primary btn-block" onclick="takePhoto()">拍照</button>
+            </div>
+            <div class="col-md-4 column">
+                <button class="btn btn-danger btn-block" onclick="closeMedia()">关闭摄像头</button>
+
+            </div>
+
+        </div>
+        <br/>
+        <br/>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+
+            </div>
+            <button class="btn btn-info btn-block" onclick="uploadPhoto()">更新人脸</button>
+        </div>
+    </div>
+</main>
+<script>
+    let mediaStreamTrack = null; // 视频对象(全局)
+    let video;
+    let img;
+    getTermId()
+    function getTermId() {
+        $.ajax({
+            dataType:"json",
+            type:"get",
+            url:'/api/user/alreadyRegister',
+            data:{},
+            success:function (data) {
+                $("#termName").empty();
+                // console.log(JSON.stringify(data.data[0].termName));
+                for(var i = 0; i < data.data.length; i++) {
+                    $("#termName").append('<option value="'+data.data[i].id+'">【已录入】'+data.data[i].realName+
+                        '==>( ' +data.data[i].unitGroup +' | ' + data.data[i].classGroup + ' )</option>');
+                }
+            }
+        });
+    };
+    function openMedia() {
+        let constraints = {
+            video: {
+                width: 500,
+                height: 500
+            },
+            audio: false
+        };
+        //获得video摄像头
+        video = document.getElementById('video');
+        let promise = navigator.mediaDevices.getUserMedia(constraints);
+        promise.then((mediaStream) => {
+            mediaStreamTrack = mediaStream.getVideoTracks();
+            video.srcObject = mediaStream;
+            video.play();
+        });
+    }
+
+    // 拍照
+    function takePhoto() {
+        //获得Canvas对象
+        let video = document.getElementById('video');
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, 500, 500);
+        // toDataURL  ---  可传入'image/png'---默认, 'image/jpeg'
+        img = document.getElementById('canvas').toDataURL();
+        // 这里的img就是得到的图片
+        // console.log(img);
+    }
+
+    // 关闭摄像头
+    function closeMedia() {
+        let stream = document.getElementById('video').srcObject;
+        let tracks = stream.getTracks();
+
+        tracks.forEach(function(track) {
+            track.stop();
+        });
+
+        document.getElementById('video').srcObject = null;
+    }
+
+    function uploadPhoto() {
+        $.ajax({
+            url: "/api/face/update",
+            method: "POST",
+            data: {
+                img: img,
+                "userId": $("#termName").val()
+            },
+            success: (res) => {
+                ans = res.data;
+                console.log(res);
+                if(res.msg == "success"){
+                    alert(res.data.error_msg);
+                }else{
+                    alert(res.msg)
+                }
+
+            },
+            error: (res) => {
+                console.log(res);
+                alert(res.msg);
+            }
+        })
+    }
+</script>
+</body>

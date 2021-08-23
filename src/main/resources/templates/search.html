@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>搜索</title>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+<main class="container">
+    <div class="m-5">
+        <button class="btn btn-primary" onclick="openMedia()">开启摄像头</button>
+        <button class="btn btn-success" onclick="takePhoto()">拍照</button>
+        <button class="btn btn-danger" onclick="closeMedia()">关闭摄像头</button>
+        <button class="btn btn-info" onclick="uploadPhoto()">比对人脸库</button>
+        <div class="mt-3 w-25">
+            <label for="user-id">用户ID：</label>
+            <input type="text" readonly id="user-id" class="form-control">
+            <label for="score">可信度(%)：</label>
+            <input type="text" readonly id="score" class="form-control">
+        </div>
+    </div>
+    <video id="video" width="500px" height="500px" class="border" autoplay="autoplay"></video>
+    <canvas id="canvas" width="500px" height="500px" class="border"></canvas>
+</main>
+<script>
+    let mediaStreamTrack = null; // 视频对象(全局)
+    let video;
+    let img;
+
+    function openMedia() {
+        let constraints = {
+            video: {width: 500, height: 500},
+            audio: false
+        };
+        //获得video摄像头
+        video = document.getElementById('video');
+        let promise = navigator.mediaDevices.getUserMedia(constraints);
+        promise.then((mediaStream) => {
+            mediaStreamTrack = mediaStream.getVideoTracks();
+            video.srcObject = mediaStream;
+            video.play();
+        });
+    }
+
+    // 拍照
+    function takePhoto() {
+        //获得Canvas对象
+        let video = document.getElementById('video');
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, 500, 500);
+        // toDataURL  ---  可传入'image/png'---默认, 'image/jpeg'
+        img = document.getElementById('canvas').toDataURL();
+        // 这里的img就是得到的图片
+        // console.log(img);
+    }
+
+    // 关闭摄像头
+    function closeMedia() {
+        let stream = document.getElementById('video').srcObject;
+        let tracks = stream.getTracks();
+
+        tracks.forEach(function (track) {
+            track.stop();
+        });
+
+        document.getElementById('video').srcObject = null;
+    }
+
+    function uploadPhoto(){
+        $.ajax({
+            url: "/api/face/search",
+            method: "POST",
+            data: {
+                img: img,
+            },
+            success: (res)=>{
+                res = res.data;
+                console.log(res);
+                if (res.error_code === 0) {
+                    $('#user-id').val(res.result.user_list[0].user_id)
+                    $('#score').val(res.result.user_list[0].score)
+                }else{
+                    $('#user-id').val(res.error_msg);
+                }
+            }
+        })
+    }
+</script>
+</body>

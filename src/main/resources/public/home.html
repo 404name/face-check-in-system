@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <title>amis demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="./amis/sdk.css" />
+    <link rel="stylesheet" href="./amis/helper.css" />
+    <script src="./amis/sdk.js"></script>
+    <style>
+        html,
+        body,
+        .app-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="root" class="app-wrapper"></div>
+
+<script type="text/javascript">
+    (function() {
+        let amis = amisRequire('amis/embed');
+        // 通过替换下面这个配置来生成不同页面
+        let amisJSON = {
+            "type": "page",
+            "title": "人脸识别签到管理系统",
+            "body": [
+                {
+                    "type": "alert",
+                    "body": [
+                        {
+                            "type": "tpl",
+                            "tpl": "欢迎使用本系统",
+                            "inline": false
+                        }
+                    ],
+                    "level": "info",
+                    "showCloseButton": true,
+                    "className": ""
+                },
+                {
+                    "type": "hbox",
+                    "gap": "",
+                    "columns": [
+                        {
+                            "body": [
+                                {
+                                    "type": "card",
+                                    "header": {
+                                        "title": "欢迎使用",
+                                        "subTitle": "通用初始化流程",
+                                        "avatar": "https://gitee.com/N404name/gitee-img/raw/master/myImg/xlk9wv%20(2).jpg",
+                                        "desc": "1. 管理员创建用户组<br/>2. 管理员导入用户/游客<br/>3. 仅用户可录入人脸<br/>4. 录入人脸的用户/游客可以打卡<br/>5. 管理员能修改默认结束时间"
+                                    },
+                                    "body": [
+                                        {
+                                            "type": "tpl",
+                                            "tpl": "<h4>公告</h4>欢迎使用本系统",
+                                            "inline": false,
+                                            "wrapperComponent": "p"
+                                        }
+                                    ],
+                                    "actions": [
+                                        {
+                                            "type": "button",
+                                            "label": "详细使用方法",
+                                            "actionType": "dialog",
+                                            "dialog": {
+                                                "title": "详细使用",
+                                                "body": [
+                                                    {
+                                                        "type": "static",
+                                                        "label": "描述",
+                                                        "name": "详细使用",
+                                                        "description": "信息详细<br/>\n信息详细<br/>\n信息详细<br/>\n信息详细信息详细<br/>\n信息详细<br/>\n信息详细<br/>"
+                                                    }
+                                                ],
+                                                "type": "dialog",
+                                                "closeOnEsc": false,
+                                                "closeOnOutside": false,
+                                                "showCloseButton": true
+                                            }
+                                        }
+                                    ],
+                                    "titleClassName": "m"
+                                },
+                                {
+                                    "type": "grid",
+                                    "columns": [
+                                        {
+                                            "body": [
+                                                {
+                                                    "type": "button",
+                                                    "label": "组别事由管理",
+                                                    "level": "light",
+                                                    "size": "lg",
+                                                    "className": "m-t",
+                                                    "block": true,
+                                                    "actionType": "url",
+                                                    "url": "./#/build/table/Group",
+                                                    "name": "text"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "body": [
+                                                {
+                                                    "type": "submit",
+                                                    "label": "签到记录查看",
+                                                    "level": "info",
+                                                    "size": "lg",
+                                                    "className": "m-t",
+                                                    "block": true,
+                                                    "actionType": "url",
+                                                    "url": "./#/build/table/SignLog",
+                                                    "name": "text",
+                                                    "confirmText": "请勿随意修改签到日志"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "columns": [
+                                        {
+                                            "body": [
+                                                {
+                                                    "type": "submit",
+                                                    "label": "用户游客管理",
+                                                    "level": "primary",
+                                                    "block": true,
+                                                    "size": "lg",
+                                                    "className": "m-t",
+                                                    "actionType": "url",
+                                                    "url": "./#/build/table/User",
+                                                    "confirmText": "",
+                                                    "name": "text"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "body": [
+                                                {
+                                                    "type": "submit",
+                                                    "label": "基础数据管理",
+                                                    "level": "danger",
+                                                    "block": true,
+                                                    "size": "lg",
+                                                    "className": "m-t",
+                                                    "actionType": "url",
+                                                    "url": "./#/build/table/SystemVariables",
+                                                    "name": "text"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "submit",
+                                    "label": "人脸信息录入",
+                                    "level": "success",
+                                    "size": "lg",
+                                    "className": "m-t m-b",
+                                    "block": true,
+                                    "actionType": "link",
+                                    "link": "/register",
+                                    "name": "email"
+                                }
+                            ],
+                            "columnClassName": "m-xs",
+                            "width": ""
+                        },
+                        {
+                            "body": [
+                                {
+                                    "type": "container",
+                                    "body": [
+
+                                        {
+                                            "type": "chart",
+                                            "api": "/api/sign/sevenDay",
+                                            "config": {
+                                                "title": {
+                                                    "text": "近一周签到人数统计"
+                                                },
+                                                "xAxis": {
+                                                    "type": "category",
+                                                    "data": "${category}"
+                                                },
+                                                "yAxis": {
+                                                    "type": "value"
+                                                },
+                                                "series": [
+                                                    {
+                                                        "data": "${line}",
+                                                        "type": "line"
+                                                    }
+                                                ]
+                                            },
+
+                                            "name": "email"
+                                        },
+                                        {
+                                            "type": "page",
+                                            "body": {
+                                                "type": "service",
+                                                "api": "/api/sign?ifAmis=1",
+                                                "body": [
+                                                    {
+                                                        "type": "page",
+                                                        "body": "起始打卡时间:[${toDayData.startTime}] -- 默认退出时间:[${toDayData.endTime}]",
+                                                        "label": false
+                                                    },
+                                                    {
+                                                        "type": "table",
+                                                        "title": "当天签到表",
+                                                        "source": "$toDayTable",
+                                                        "columns": [
+                                                            {
+                                                                "label": "用户名",
+                                                                "name": "userName",
+                                                                "type": "text"
+                                                            },
+                                                            {
+                                                                "type": "text",
+                                                                "label": "单位",
+                                                                "name": "unitGroup"
+                                                            },
+                                                            {
+                                                                "type": "text",
+                                                                "label": "课题组",
+                                                                "name": "classGroup"
+                                                            },
+                                                            {
+                                                                "type": "text",
+                                                                "label": "签到时间",
+                                                                "name": "inTime"
+                                                            },
+                                                            {
+                                                                "type": "text",
+                                                                "label": "签退时间",
+                                                                "name": "outTime"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "className": "p"
+                                }
+                            ],
+                            "columnClassName": "",
+                            "width": ""
+                        }
+                    ],
+                    "visible": true,
+                    "className": "",
+                    "subFormMode": "normal"
+                }
+            ],
+            "messages": {},
+            "subTitle": "基于百度云人脸识别API开发的一套综合管理系统",
+            "className": ""
+        };
+        let amisScoped = amis.embed('#root', amisJSON);
+    })();
+</script>
+</body>
+</html>
