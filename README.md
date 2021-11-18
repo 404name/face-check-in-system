@@ -2,7 +2,7 @@
 
 # 一 、项目背景及需求分析
 
-> [项目地址](https://github.com/404name/face-check-in-system)
+> [docker-compose一键部署](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)（仅需下载docker-compose文件夹运行即可）
 
 > 用户在可靠验证下实现简化身份确认
 
