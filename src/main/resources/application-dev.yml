@@ -1,28 +1,27 @@
 server:
-  port: 8888
-  max-http-header-size: 10485760
+  port: 8080
+  max-http-header-size: 102400
 # 百度人脸api
 baidu:
-  app_id: 百度
-  api_key: 百度
-  secret_key: 百度
+  app_id: 24601725
+  api_key: T5UmqfT0mPnlBmbncvDPnDDz
+  secret_key: sU7rhCZYrzNYan2UpbEjYEsxPrNDXDT2
 # 开启swagger
 swagger:
   enable: true
 # 数据库及jpa
 spring:
-  profiles: dev
   datasource:
-    url: jdbc:mysql://你的数据库:3306/数据库?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: 用户名
-    password: 密码
+    url: jdbc:mysql://127.0.0.1:3306/face_sign_in?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: face_sign_in
+    password: 123456
     hikari:
-      max-lifetime: 30000
+      max-lifetime: 50000
       maximum-pool-size: 10
       minimum-idle: 3
       connection-test-query: SELECT 1
   redis:
-    host: 你的数据库
+    host: 127.0.0.1
     database: 0 # Redis数拙库索引(默认为0 )
     port: 6379 # Redis服务器连接端口
     password: # Redis服务器连接密码 (默认为空)
@@ -33,7 +32,6 @@ spring:
         max-idLe: 8 #连接池中的最大空闲连接
         min-idle: 0 #连接池中的最小空闲连接
     timeout: 3000ms
-
   jpa:
     show-sql: true
     generate-ddl: true
@@ -47,19 +45,16 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     deserialization:
       accept_empty_string_as_null_object: true
-
   servlet:
     multipart:
       max-file-size: 10485760
       max-request-size: 10485760
-
 
 erupt-app:
   # 登录失败几次出现验证码，值为0时表示一直需要登录验证码
   verifyCodeCount: 2
   # 登录密码是否加密传输，特殊场景如：LDAP登录可关闭该功能获取密码明文
   pwdTransferEncrypt: true
-
 erupt:
   # 是否开启csrf防御
   csrfInspect: true
@@ -76,6 +71,3 @@ erupt:
   # 是否记录操作日志，默认true，该功能开启后可在【系统管理 → 操作日志】中查看操作日志
   security.recordOperateLog: true
 
-
-#baidu:
-#  access_token: 24.bb7078311c38c9df3ac57fc8ca1714f7.2592000.1629793677.282335-24601725

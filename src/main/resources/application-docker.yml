@@ -12,8 +12,9 @@ swagger:
 # 数据库及jpa
 spring:
   datasource:
-    url: jdbc:mysql://47.XXX.203.60:3306/face?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: face
+    #必须用容器链接，来跨容器访问mysql
+    url: jdbc:mysql://mysql:3306/face_sign_in?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: face_sign_in
     password: 123456
     hikari:
       max-lifetime: 50000
@@ -21,7 +22,7 @@ spring:
       minimum-idle: 3
       connection-test-query: SELECT 1
   redis:
-    host: XXXXX.top
+    host: redis
     database: 0 # Redis数拙库索引(默认为0 )
     port: 6379 # Redis服务器连接端口
     password: # Redis服务器连接密码 (默认为空)
