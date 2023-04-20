@@ -1,4 +1,8 @@
-<a name="D1bx4"></a>
+> **！！客户端的源码目前已经丢失了，本仓库只有后端+后端管理的前台，客户端只有打包好的exe(修改不了内容)在[release](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)里面！**
+
+> **！！客户端的源码目前已经丢失了，本仓库只有后端+后端管理的前台，客户端只有打包好的exe(修改不了内容)在[release](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)里面！**
+
+> **！！客户端的源码目前已经丢失了，本仓库只有后端+后端管理的前台，客户端只有打包好的exe(修改不了内容)在[release](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)里面！**
 
 # 一 、项目背景及需求分析
 
