@@ -9,12 +9,11 @@
 <body>
 <main class="container">
     <div class="container">
-        <div class="alert alert-success" role="alert">未录入人脸列表 <span style="float: right;"><a href="/updateface">更新人脸</a></span></div>
+        <div class="alert alert-success" role="alert">未录入人脸列表<span style="float: right;"><a href="/updateface">更新人脸</a></span></div>
         <div class="alert alert-success" role="alert">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <select class="form-control" id="termName"  placeholder="termId">
                     <option>获取中</option>
-                    <option>2021获取中</option>
                 </select>
             </div>
         </div>
@@ -66,9 +65,14 @@
             success:function (data) {
                 $("#termName").empty();
                 // console.log(JSON.stringify(data.data[0].termName));
+
                 for(var i = 0; i < data.data.length; i++) {
                     $("#termName").append('<option value="'+data.data[i].id+'">【未录入】'+data.data[i].realName+
                         '==>( ' +data.data[i].unitGroup +' | ' + data.data[i].classGroup + ' )</option>');
+                }
+
+                if(data.data.length == 0){
+                    $("#termName").append('<option>请先创建新用户，系统用户均已录入人脸</option>');
                 }
             }
         });
@@ -130,7 +134,7 @@
                 if(res.msg == "success"){
                     alert(res.data.error_msg);
                 }else{
-                    alert(res.msg)
+                    alert("人脸不清晰，请重试");
                 }
             },
             error: (res) => {

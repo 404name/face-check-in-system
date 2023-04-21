@@ -50,8 +50,8 @@ public class BaiduFaceServiceImpl implements BaiduFaceService {
         initClient();
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("user_info", userService.getUserMsg(user));
-        options.put("quality_control", "NORMAL");
-        options.put("liveness_control", "LOW");
+        options.put("quality_control", "LOW");
+        options.put("liveness_control", "NONE");
         options.put("action_type", "REPLACE");
         img = img.replace("data:image/png;base64,", "");
         img = img.replace("data:image/jpeg;base64,", "");
@@ -83,8 +83,8 @@ public class BaiduFaceServiceImpl implements BaiduFaceService {
         initClient();
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("user_info",userService.getUserMsg(user));
-        options.put("quality_control", "NORMAL");
-        options.put("liveness_control", "LOW");
+        options.put("quality_control", "LOW");
+        options.put("liveness_control", "NONE");
         options.put("action_type", "REPLACE");
         String imageType = "BASE64";
         if(ifToken) {
@@ -106,8 +106,8 @@ public class BaiduFaceServiceImpl implements BaiduFaceService {
         initClient();
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("match_threshold", "70");
-        options.put("quality_control", "NORMAL");
-        options.put("liveness_control", "LOW");
+        options.put("quality_control", "LOW");
+        options.put("liveness_control", "NONE");
         img = img.replace("data:image/png;base64,", "");
         img = img.replace("data:image/jpeg;base64,", "");
         System.out.println(img);
@@ -121,8 +121,8 @@ public class BaiduFaceServiceImpl implements BaiduFaceService {
         initClient();
         HashMap<String, String> options = new HashMap<String, String>();
         options.put("match_threshold", "70");
-        options.put("quality_control", "NORMAL");
-        options.put("liveness_control", "LOW");
+        options.put("quality_control", "LOW");
+        options.put("liveness_control", "NONE");
         img = img.replace("data:image/png;base64,", "");
         img = img.replace("data:image/jpeg;base64,", "");
         System.out.println(img);

@@ -55,7 +55,7 @@ public class SignLogServiceImpl implements SignLogService {
     }
     @Override
     public SignLog findNowTask(Long id){
-        return signLogdao.findByFromUserIdAndOutTimeNull(id);
+        return signLogdao.findByFromUserIdAndOutTimeNullOrderByInTimeDesc(id);
     }
     @Override
     public List<SignLog> list(){

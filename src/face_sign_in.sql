@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 47.113.203.60
+ Source Server         : 华为服务器
  Source Server Type    : MySQL
- Source Server Version : 50650
- Source Host           : localhost:3306
+ Source Server Version : 80030
+ Source Host           : xx.404xxxx.top:3306
  Source Schema         : face
 
  Target Server Type    : MySQL
- Target Server Version : 50650
+ Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 17/11/2021 20:01:43
+ Date: 20/04/2023 19:04:12
 */
 
 SET NAMES utf8mb4;
@@ -22,21 +22,21 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `e_dict`;
 CREATE TABLE `e_dict`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_user_id` bigint(20) NULL DEFAULT NULL,
-  `update_user_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `remark` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `create_user_id` bigint(0) NULL DEFAULT NULL,
+  `update_user_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UKf5wwh5osfukkeebw7h2yb4kmp`(`code`) USING BTREE,
   INDEX `FKi8lurtplfsktg01y6uevop5yp`(`create_user_id`) USING BTREE,
   INDEX `FKhxpr89ae0g4rd9xpfgcdjf0sa`(`update_user_id`) USING BTREE,
   CONSTRAINT `FKhxpr89ae0g4rd9xpfgcdjf0sa` FOREIGN KEY (`update_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKi8lurtplfsktg01y6uevop5yp` FOREIGN KEY (`create_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_dict
@@ -47,16 +47,16 @@ CREATE TABLE `e_dict`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `e_dict_item`;
 CREATE TABLE `e_dict_item`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sort` int(11) NULL DEFAULT NULL,
-  `create_user_id` bigint(20) NULL DEFAULT NULL,
-  `update_user_id` bigint(20) NULL DEFAULT NULL,
-  `erupt_dict_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `remark` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `sort` int(0) NULL DEFAULT NULL,
+  `create_user_id` bigint(0) NULL DEFAULT NULL,
+  `update_user_id` bigint(0) NULL DEFAULT NULL,
+  `erupt_dict_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UKl0kiq8otpn3fvtlvarebt8xkh`(`code`, `erupt_dict_id`) USING BTREE,
   INDEX `FKij9x8hwy16dra7d49h483lu2u`(`create_user_id`) USING BTREE,
@@ -65,7 +65,7 @@ CREATE TABLE `e_dict_item`  (
   CONSTRAINT `FKij9x8hwy16dra7d49h483lu2u` FOREIGN KEY (`create_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKmlg0pjfxwih4i6r0g0iilh1lu` FOREIGN KEY (`update_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKrrbi2dt94rjd8sjt830m3w0a` FOREIGN KEY (`erupt_dict_id`) REFERENCES `e_dict` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_dict_item
@@ -76,21 +76,21 @@ CREATE TABLE `e_dict_item`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `e_generator_class`;
 CREATE TABLE `e_generator_class`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `class_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `remark` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `table_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_user_id` bigint(20) NULL DEFAULT NULL,
-  `update_user_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `class_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `remark` varchar(2000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `table_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `create_user_id` bigint(0) NULL DEFAULT NULL,
+  `update_user_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKbnmtsmoprxey1uh6hwa7kl15b`(`create_user_id`) USING BTREE,
   INDEX `FKl47n6nt0w2ulphuhmwht6jdlw`(`update_user_id`) USING BTREE,
   CONSTRAINT `FKbnmtsmoprxey1uh6hwa7kl15b` FOREIGN KEY (`create_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKl47n6nt0w2ulphuhmwht6jdlw` FOREIGN KEY (`update_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_generator_class
@@ -106,21 +106,21 @@ INSERT INTO `e_generator_class` VALUES (5, '2021-08-14 10:26:42', NULL, 'Group',
 -- ----------------------------
 DROP TABLE IF EXISTS `e_generator_field`;
 CREATE TABLE `e_generator_field`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `field_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `field_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `is_show` bit(1) NULL DEFAULT NULL,
-  `link_class` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `link_class` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `not_null` bit(1) NULL DEFAULT NULL,
   `query` bit(1) NULL DEFAULT NULL,
-  `show_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sort` int(11) NULL DEFAULT NULL,
+  `show_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `sort` int(0) NULL DEFAULT NULL,
   `sortable` bit(1) NULL DEFAULT NULL,
-  `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `class_id` bigint(20) NULL DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `class_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKslwo9qwwfbgif9mbbhg072s4i`(`class_id`) USING BTREE,
   CONSTRAINT `FKslwo9qwwfbgif9mbbhg072s4i` FOREIGN KEY (`class_id`) REFERENCES `e_generator_class` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_generator_field
@@ -152,19 +152,19 @@ INSERT INTO `e_generator_field` VALUES (21, 'expiredTime', b'1', NULL, b'1', b'0
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_login_log`;
 CREATE TABLE `e_upms_login_log`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `browser` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `device_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `login_time` datetime NULL DEFAULT NULL,
-  `region` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `system_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `erupt_user_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `browser` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `device_type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `ip` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `login_time` datetime(0) NULL DEFAULT NULL,
+  `region` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `system_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `erupt_user_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKjqnr9oel32kajm6bpvqwomv6m`(`erupt_user_id`) USING BTREE,
   CONSTRAINT `FKjqnr9oel32kajm6bpvqwomv6m` FOREIGN KEY (`erupt_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_login_log
@@ -287,27 +287,28 @@ INSERT INTO `e_upms_login_log` VALUES (115, 'Chrome 8 88', 'Computer', '117.150.
 INSERT INTO `e_upms_login_log` VALUES (116, 'Chrome 8 88', 'Computer', '61.136.151.253', '2021-09-29 10:14:38', '中国|0|湖北省|宜昌市|电信', 'Windows 10', 'mIX0A6iinaX1GvVS', 1);
 INSERT INTO `e_upms_login_log` VALUES (117, 'Chrome 9 92', 'Computer', '61.136.151.251', '2021-10-13 11:13:01', '中国|0|湖北省|宜昌市|电信', 'Windows 10', '2iYoKGhSJN9piB5J', 1);
 INSERT INTO `e_upms_login_log` VALUES (118, 'Chrome 9 92', 'Computer', '117.150.6.209', '2021-10-26 21:06:21', '中国|0|湖北省|宜昌市|移动', 'Windows 10', 'Vfphc2HhUZB8nYDQ', 1);
+INSERT INTO `e_upms_login_log` VALUES (119, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-20 18:47:03', '0|0|0|内网IP|内网IP', 'Windows 10', 'EeMiWu0ELZbHpY0k', 3);
 
 -- ----------------------------
 -- Table structure for e_upms_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_menu`;
 CREATE TABLE `e_upms_menu`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `icon` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `param` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `power_off` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sort` int(11) NULL DEFAULT NULL,
-  `status` int(11) NULL DEFAULT NULL,
-  `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `value` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_user_id` bigint(20) NULL DEFAULT NULL,
-  `update_user_id` bigint(20) NULL DEFAULT NULL,
-  `parent_menu_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `icon` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `param` varchar(2000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `power_off` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `sort` int(0) NULL DEFAULT NULL,
+  `status` int(0) NULL DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `value` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `create_user_id` bigint(0) NULL DEFAULT NULL,
+  `update_user_id` bigint(0) NULL DEFAULT NULL,
+  `parent_menu_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UK95xpkppt33d2bka0g2d7rgwqt`(`code`) USING BTREE,
   INDEX `FK4p5siq6l1rf9y47bosayghcsv`(`create_user_id`) USING BTREE,
@@ -316,7 +317,7 @@ CREATE TABLE `e_upms_menu`  (
   CONSTRAINT `FK4p5siq6l1rf9y47bosayghcsv` FOREIGN KEY (`create_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK5mkgea183mm02v7ic1pdwxy5s` FOREIGN KEY (`parent_menu_id`) REFERENCES `e_upms_menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKtm66wffkyyluinneyva8kd2bc` FOREIGN KEY (`update_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_menu
@@ -343,22 +344,22 @@ INSERT INTO `e_upms_menu` VALUES (20, '2021-08-20 16:23:42', '2021-08-20 16:23:4
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_operate_log`;
 CREATE TABLE `e_upms_operate_log`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `api_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime NULL DEFAULT NULL,
-  `error_info` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `region` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `req_addr` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `req_method` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `req_param` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `api_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `error_info` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL,
+  `ip` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `region` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `req_addr` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `req_method` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `req_param` varchar(5000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `status` bit(1) NULL DEFAULT NULL,
-  `total_time` bigint(20) NULL DEFAULT NULL,
-  `erupt_user_id` bigint(20) NULL DEFAULT NULL,
+  `total_time` bigint(0) NULL DEFAULT NULL,
+  `erupt_user_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK27xepkxthq9snq3yk6k7iad33`(`erupt_user_id`) USING BTREE,
   CONSTRAINT `FK27xepkxthq9snq3yk6k7iad33` FOREIGN KEY (`erupt_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 217 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 217 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_operate_log
@@ -579,21 +580,36 @@ INSERT INTO `e_upms_operate_log` VALUES (213, '修改 | 用户信息', '2021-09-
 INSERT INTO `e_upms_operate_log` VALUES (214, '修改 | 用户信息', '2021-09-29 10:15:44', NULL, '61.136.151.253', '中国|0|湖北省|宜昌市|电信', 'http://sign.404name.top/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"李灵智\",\"signState\":false,\"status\":true,\"unitGroup\":\"1\",\"classGroup\":\"3\",\"userGroup\":\"6\",\"telphone\":2147483647,\"email\":\"1308964967@qq.com\",\"faceId\":\"9e1568d5168bf118eeb377b27b8e023c\",\"expiredTime\":\"2021-08-28 14:58:59\",\"id\":1}', b'1', 209, 1);
 INSERT INTO `e_upms_operate_log` VALUES (215, '修改 | 用户信息', '2021-09-29 10:15:54', NULL, '61.136.151.253', '中国|0|湖北省|宜昌市|电信', 'http://sign.404name.top/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"测试用户\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2022-09-05 19:49:53\",\"id\":4}', b'1', 269, 1);
 INSERT INTO `e_upms_operate_log` VALUES (216, '修改 | 用户信息', '2021-09-29 10:16:02', NULL, '61.136.151.253', '中国|0|湖北省|宜昌市|电信', 'http://sign.404name.top/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"灵智\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"3\",\"userGroup\":\"5\",\"expiredTime\":\"2021-09-30 19:50:06\",\"id\":5}', b'1', 313, 1);
+INSERT INTO `e_upms_operate_log` VALUES (217, '修改 | 用户信息', '2023-04-20 18:51:08', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"随便找的boy\",\"signState\":true,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2021-10-30 20:38:36\",\"id\":3}', b'1', 328, 3);
+INSERT INTO `e_upms_operate_log` VALUES (218, '修改 | 用户信息', '2023-04-20 18:51:39', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小李\",\"signState\":false,\"status\":true,\"unitGroup\":\"1\",\"classGroup\":\"3\",\"userGroup\":\"6\",\"telphone\":2147483647,\"email\":\"1308964967@qq.com\",\"faceId\":\"9e1568d5168bf118eeb377b27b8e023c\",\"expiredTime\":\"2021-08-28 14:58:59\",\"id\":1}', b'1', 274, 3);
+INSERT INTO `e_upms_operate_log` VALUES (219, '修改 | 用户信息', '2023-04-20 18:51:49', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":true,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2022-09-30 19:49:41\",\"id\":2}', b'1', 275, 3);
+INSERT INTO `e_upms_operate_log` VALUES (220, '修改 | 用户信息', '2023-04-20 18:52:05', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":true,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2022-09-30 19:49:41\",\"id\":2}', b'1', 284, 3);
+INSERT INTO `e_upms_operate_log` VALUES (221, '修改 | 用户信息', '2023-04-20 18:52:30', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"王思聪\",\"signState\":true,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":666,\"email\":\"666@qq.com\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2021-10-30 20:38:36\",\"id\":3}', b'1', 336, 3);
+INSERT INTO `e_upms_operate_log` VALUES (222, '修改 | 用户信息', '2023-04-20 18:52:39', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小智\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"3\",\"userGroup\":\"5\",\"expiredTime\":\"2021-09-30 19:50:06\",\"id\":5}', b'1', 333, 3);
+INSERT INTO `e_upms_operate_log` VALUES (223, '修改 | 单位及课题组管理', '2023-04-20 18:53:26', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'PUT', '{\"groupClass\":\"1\",\"name\":\"李老师课题组\",\"message\":\"Java课程设计\",\"id\":3}', b'1', 297, 3);
+INSERT INTO `e_upms_operate_log` VALUES (224, '修改 | 单位及课题组管理', '2023-04-20 18:53:33', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'PUT', '{\"groupClass\":\"1\",\"name\":\"王老师课题组\",\"message\":\"暑期实践答辩设计\",\"id\":4}', b'1', 305, 3);
+INSERT INTO `e_upms_operate_log` VALUES (225, '新增 | 单位及课题组管理', '2023-04-20 18:54:17', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"0\",\"name\":\"AI算法部\",\"message\":\"AI算法相关\"}', b'1', 223, 3);
+INSERT INTO `e_upms_operate_log` VALUES (226, '修改 | 单位及课题组管理', '2023-04-20 18:54:44', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'PUT', '{\"groupClass\":\"2\",\"name\":\"访客\",\"message\":\"访客(仅手动签到)\",\"id\":5}', b'1', 306, 3);
+INSERT INTO `e_upms_operate_log` VALUES (227, '修改 | 单位及课题组管理', '2023-04-20 18:54:52', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'PUT', '{\"groupClass\":\"2\",\"name\":\"学生\",\"message\":\"学生(人脸识别打卡)\",\"id\":6}', b'1', 342, 3);
+INSERT INTO `e_upms_operate_log` VALUES (228, '修改 | 单位及课题组管理', '2023-04-20 18:55:13', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'PUT', '{\"groupClass\":\"3\",\"name\":\"访问\",\"message\":\"进行访问\",\"id\":8}', b'1', 349, 3);
+INSERT INTO `e_upms_operate_log` VALUES (229, '新增 | 单位及课题组管理', '2023-04-20 18:55:33', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"3\",\"name\":\"自习\",\"message\":\"进行自习\"}', b'1', 228, 3);
+INSERT INTO `e_upms_operate_log` VALUES (230, '新增 | 单位及课题组管理', '2023-04-20 18:55:42', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"3\",\"name\":\"其它\",\"message\":\"其它事情\"}', b'1', 230, 3);
+INSERT INTO `e_upms_operate_log` VALUES (231, '新增 | 单位及课题组管理', '2023-04-20 18:56:08', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"3\",\"name\":\"维修\",\"message\":\"后勤人员进行维修等工作\"}', b'1', 235, 3);
 
 -- ----------------------------
 -- Table structure for e_upms_org
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_org`;
 CREATE TABLE `e_upms_org`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sort` int(11) NULL DEFAULT NULL,
-  `parent_org_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `sort` int(0) NULL DEFAULT NULL,
+  `parent_org_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKtj7222kjnkt7pv9kfn9g8ck4h`(`parent_org_id`) USING BTREE,
   CONSTRAINT `FKtj7222kjnkt7pv9kfn9g8ck4h` FOREIGN KEY (`parent_org_id`) REFERENCES `e_upms_org` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_org
@@ -604,13 +620,13 @@ CREATE TABLE `e_upms_org`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_post`;
 CREATE TABLE `e_upms_post`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `weight` int(11) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `weight` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UKltq5h3n5cyyk5nxtjhg9lhidg`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_post
@@ -621,14 +637,14 @@ CREATE TABLE `e_upms_post`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_role`;
 CREATE TABLE `e_upms_role`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `power_off` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `power_off` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `status` bit(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UKjgxkp7mr4183tcwosrbqpsl3a`(`code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_role
@@ -640,13 +656,13 @@ INSERT INTO `e_upms_role` VALUES (1, 'admin', '普通管理员', NULL, b'1');
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_role_menu`;
 CREATE TABLE `e_upms_role_menu`  (
-  `role_id` bigint(20) NOT NULL,
-  `menu_id` bigint(20) NOT NULL,
+  `role_id` bigint(0) NOT NULL,
+  `menu_id` bigint(0) NOT NULL,
   PRIMARY KEY (`role_id`, `menu_id`) USING BTREE,
   INDEX `FKr6bl403chgwjnb6jk0uqqd9x8`(`menu_id`) USING BTREE,
   CONSTRAINT `FKgsdnakqsme4htxkiapwmf6tbi` FOREIGN KEY (`role_id`) REFERENCES `e_upms_role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKr6bl403chgwjnb6jk0uqqd9x8` FOREIGN KEY (`menu_id`) REFERENCES `e_upms_menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_role_menu
@@ -665,24 +681,24 @@ INSERT INTO `e_upms_role_menu` VALUES (1, 17);
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_user`;
 CREATE TABLE `e_upms_user`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime NULL DEFAULT NULL,
-  `update_time` datetime NULL DEFAULT NULL,
-  `account` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `update_time` datetime(0) NULL DEFAULT NULL,
+  `account` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `is_admin` bit(1) NULL DEFAULT NULL,
   `is_md5` bit(1) NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `remark` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `remark` varchar(2000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `status` bit(1) NULL DEFAULT NULL,
-  `white_ip` varchar(2000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `erupt_org_id` bigint(20) NULL DEFAULT NULL,
-  `erupt_post_id` bigint(20) NULL DEFAULT NULL,
-  `create_user_id` bigint(20) NULL DEFAULT NULL,
-  `update_user_id` bigint(20) NULL DEFAULT NULL,
-  `erupt_menu_id` bigint(20) NULL DEFAULT NULL,
+  `white_ip` varchar(2000) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `erupt_org_id` bigint(0) NULL DEFAULT NULL,
+  `erupt_post_id` bigint(0) NULL DEFAULT NULL,
+  `create_user_id` bigint(0) NULL DEFAULT NULL,
+  `update_user_id` bigint(0) NULL DEFAULT NULL,
+  `erupt_menu_id` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UK812t22yn0295dkkvx5gjgahax`(`account`) USING BTREE,
   INDEX `FK1re8jv3614mkk2wfxscvgvmnm`(`erupt_org_id`) USING BTREE,
@@ -695,7 +711,7 @@ CREATE TABLE `e_upms_user`  (
   CONSTRAINT `FKct3f9stm4eti10401f7rbh5ey` FOREIGN KEY (`update_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKdvwfw4x66ahh1tavd69cnx4i0` FOREIGN KEY (`create_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKga0jd7sahnn1tv14mq4dy5kba` FOREIGN KEY (`erupt_menu_id`) REFERENCES `e_upms_menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_user
@@ -709,13 +725,13 @@ INSERT INTO `e_upms_user` VALUES (3, '管理员', '2021-08-20 16:17:06', NULL, '
 -- ----------------------------
 DROP TABLE IF EXISTS `e_upms_user_role`;
 CREATE TABLE `e_upms_user_role`  (
-  `user_id` bigint(20) NOT NULL,
-  `role_id` bigint(20) NOT NULL,
+  `user_id` bigint(0) NOT NULL,
+  `role_id` bigint(0) NOT NULL,
   PRIMARY KEY (`role_id`, `user_id`) USING BTREE,
   INDEX `FKes2ylim5w3ej690ss84sb956x`(`user_id`) USING BTREE,
   CONSTRAINT `FK3h4lekfh26f5f8b7by3ejges6` FOREIGN KEY (`role_id`) REFERENCES `e_upms_role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKes2ylim5w3ej690ss84sb956x` FOREIGN KEY (`user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_user_role
@@ -728,67 +744,67 @@ INSERT INTO `e_upms_user_role` VALUES (3, 1);
 -- ----------------------------
 DROP TABLE IF EXISTS `sign_log`;
 CREATE TABLE `sign_log`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `in_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `msg` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `out_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sign_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `to_do` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `user_group` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `date` datetime NULL DEFAULT NULL,
-  `from_user_id` bigint(20) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `in_time` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `msg` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `out_time` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `sign_time` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `to_do` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `user_group` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `date` datetime(0) NULL DEFAULT NULL,
+  `from_user_id` bigint(0) NULL DEFAULT NULL,
   `user_class` bit(1) NULL DEFAULT NULL,
-  `class_group` bigint(20) NULL DEFAULT NULL,
-  `unit_group` bigint(20) NULL DEFAULT NULL,
+  `class_group` bigint(0) NULL DEFAULT NULL,
+  `unit_group` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sign_log
 -- ----------------------------
-INSERT INTO `sign_log` VALUES (1, '李灵智', '12:17:22', NULL, '12:17:59', '1.5', '7', '5', '2021-08-09 00:00:00', 1, b'1', 3, 1);
-INSERT INTO `sign_log` VALUES (2, '李灵智', '21:15:50', '无', '21:59:50', '2.0', '8', '5', '2021-08-10 00:00:00', 1, b'1', 4, 1);
-INSERT INTO `sign_log` VALUES (7, '李灵智', '12:00:00', '无', '15:00:00', '3', '8', '5', '2021-08-10 00:00:00', 1, b'1', 4, 1);
-INSERT INTO `sign_log` VALUES (8, '李灵智', '07:00:00', '无', '08:00:00', '3', '1', '5', '2021-08-10 00:00:00', 1, b'1', 0, 2);
-INSERT INTO `sign_log` VALUES (9, '李灵智', '07:00:00', '无', '08:00:00', '3', '7', '5', '2021-08-12 00:00:00', 1, b'1', 3, 2);
-INSERT INTO `sign_log` VALUES (10, '李灵智', '07:00:00', '无', '08:00:00', '3', '7', '5', '2021-08-13 00:00:00', 1, b'1', 0, 1);
-INSERT INTO `sign_log` VALUES (11, '李灵智', '16:14:30', '签到', '16:21:23', '0.5', '8', '5', '2021-08-10 00:00:00', 1, b'1', 0, 1);
-INSERT INTO `sign_log` VALUES (12, '李灵智', '16:28:43', '测试', '16:30:55', '0.5', '1', '5', '2021-08-10 00:00:00', 1, b'1', 0, 1);
+INSERT INTO `sign_log` VALUES (1, '小李', '12:17:22', NULL, '12:17:59', '1.5', '7', '5', '2021-08-09 00:00:00', 1, b'1', 3, 1);
+INSERT INTO `sign_log` VALUES (2, '小李', '21:15:50', '无', '21:59:50', '2.0', '8', '5', '2021-08-10 00:00:00', 1, b'1', 4, 1);
+INSERT INTO `sign_log` VALUES (7, '小李', '12:00:00', '无', '15:00:00', '3', '8', '5', '2021-08-10 00:00:00', 1, b'1', 4, 1);
+INSERT INTO `sign_log` VALUES (8, '小李', '07:00:00', '无', '08:00:00', '3', '1', '5', '2021-08-10 00:00:00', 1, b'1', 0, 2);
+INSERT INTO `sign_log` VALUES (9, '小李', '07:00:00', '无', '08:00:00', '3', '7', '5', '2021-08-12 00:00:00', 1, b'1', 3, 2);
+INSERT INTO `sign_log` VALUES (10, '小李', '07:00:00', '无', '08:00:00', '3', '7', '5', '2021-08-13 00:00:00', 1, b'1', 0, 1);
+INSERT INTO `sign_log` VALUES (11, '小李', '16:14:30', '签到', '16:21:23', '0.5', '8', '5', '2021-08-10 00:00:00', 1, b'1', 0, 1);
+INSERT INTO `sign_log` VALUES (12, '小李', '16:28:43', '测试', '16:30:55', '0.5', '1', '5', '2021-08-10 00:00:00', 1, b'1', 0, 1);
 INSERT INTO `sign_log` VALUES (13, '测试', '17:40:15', '测试', '17:42:23', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'0', 0, 0);
 INSERT INTO `sign_log` VALUES (14, '测试', '17:46:54', '【系统强制退出】系统时间', '18:38:00', '1.0', NULL, '5', '2021-08-14 00:00:00', 1, b'0', 0, 0);
-INSERT INTO `sign_log` VALUES (15, '李灵智', '18:22:59', '【系统强制退出】test', '18:42:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'1', 3, 1);
+INSERT INTO `sign_log` VALUES (15, '小李', '18:22:59', '【系统强制退出】test', '18:42:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'1', 3, 1);
 INSERT INTO `sign_log` VALUES (17, '测试', '18:46:30', '【系统强制退出】null', '18:48:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'0', 0, 0);
-INSERT INTO `sign_log` VALUES (18, '李灵智', '18:46:48', '【系统强制退出】null', '18:49:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'1', 3, 1);
+INSERT INTO `sign_log` VALUES (18, '小李', '18:46:48', '【系统强制退出】null', '18:49:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'1', 3, 1);
 INSERT INTO `sign_log` VALUES (19, '测试', '18:51:13', '【系统强制退出】null', '18:54:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'0', 0, 0);
-INSERT INTO `sign_log` VALUES (20, '李灵智', '18:51:19', '【系统强制退出】呃呃呃', '18:54:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'1', 3, 1);
+INSERT INTO `sign_log` VALUES (20, '小李', '18:51:19', '【系统强制退出】呃呃呃', '18:54:00', '0.5', NULL, '5', '2021-08-14 00:00:00', 1, b'1', 3, 1);
 INSERT INTO `sign_log` VALUES (23, '测试', '09:50:00', NULL, '09:51:18', '0.5', NULL, '5', '2021-08-16 00:00:00', 1, b'0', 0, 0);
-INSERT INTO `sign_log` VALUES (26, '李灵智', '16:48:59', '【系统强制退出】null', '22:00:00', '5.5', NULL, '5', '2021-08-16 00:00:00', 1, b'1', 3, 1);
+INSERT INTO `sign_log` VALUES (26, '小李', '16:48:59', '【系统强制退出】null', '22:00:00', '5.5', NULL, '5', '2021-08-16 00:00:00', 1, b'1', 3, 1);
 INSERT INTO `sign_log` VALUES (28, 'llz', '12:18:08', 'AOP测试', '12:20:18', '0.5', NULL, '5', '2021-08-17 00:00:00', 2, b'0', 0, 0);
-INSERT INTO `sign_log` VALUES (29, '随便找的boy', '15:33:35', '【系统强制退出】null', '22:00:00', '6.5', '7', '5', '2021-08-17 00:00:00', 3, b'1', 4, 2);
-INSERT INTO `sign_log` VALUES (30, '杨澳宇', '15:49:27', '【系统强制退出】null', '22:00:00', '6.5', '8', '5', '2021-08-17 00:00:00', 2, b'1', 4, 2);
+INSERT INTO `sign_log` VALUES (29, '王思聪', '15:33:35', '【系统强制退出】null', '22:00:00', '6.5', '7', '5', '2021-08-17 00:00:00', 3, b'1', 4, 2);
+INSERT INTO `sign_log` VALUES (30, '小杨', '15:49:27', '【系统强制退出】null', '22:00:00', '6.5', '8', '5', '2021-08-17 00:00:00', 2, b'1', 4, 2);
 INSERT INTO `sign_log` VALUES (32, '灵智', '21:17:08', NULL, '21:20:40', '0.5', NULL, '6', '2021-08-17 00:00:00', 5, NULL, 3, 1);
 INSERT INTO `sign_log` VALUES (33, '灵智', '21:50:48', NULL, '21:56:14', '0.5', NULL, '5', '2021-08-17 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (34, '李灵智', '21:54:45', 'ces', '21:57:15', '0.0', NULL, '6', '2021-08-17 00:00:00', 1, NULL, 3, 1);
+INSERT INTO `sign_log` VALUES (34, '小李', '21:54:45', 'ces', '21:57:15', '0.0', NULL, '6', '2021-08-17 00:00:00', 1, NULL, 3, 1);
 INSERT INTO `sign_log` VALUES (35, '灵智', '16:09:28', '【系统强制退出】null', '22:00:00', '6.0', '8', '5', '2021-08-18 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (36, '测试用户', '16:15:37', '【系统强制退出】null', '22:00:00', '6.0', '8', '5', '2021-08-18 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (37, '测试用户', '16:18:02', '【系统强制退出】null', '22:00:00', '6.0', '7', '5', '2021-08-18 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (38, '杨澳宇', '16:21:31', '【系统强制退出】null', '22:00:00', '6.0', '8', '6', '2021-08-18 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (39, '杨澳宇', '22:13:09', '【系统强制退出】null', '22:00:00', '0.0', '8', '6', '2021-08-18 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (38, '小杨', '16:21:31', '【系统强制退出】null', '22:00:00', '6.0', '8', '6', '2021-08-18 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (39, '小杨', '22:13:09', '【系统强制退出】null', '22:00:00', '0.0', '8', '6', '2021-08-18 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (40, '测试用户', '11:32:17', '【系统强制退出】null', '22:00:00', '10.0', '8', '5', '2021-08-19 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (41, '杨澳宇', '21:42:29', '【系统强制退出】null', '22:00:00', '0.0', '8', '6', '2021-08-19 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (44, '杨澳宇', '13:43:04', '【系统强制退出】null', '22:00:00', '8.5', '8', '6', '2021-08-20 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (41, '小杨', '21:42:29', '【系统强制退出】null', '22:00:00', '0.0', '8', '6', '2021-08-19 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (44, '小杨', '13:43:04', '【系统强制退出】null', '22:00:00', '8.5', '8', '6', '2021-08-20 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (45, '测试用户', '14:21:31', NULL, '14:21:47', '0.0', NULL, '5', '2021-08-20 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (46, '灵智', '14:21:36', '【系统强制退出】null', '22:00:00', '8.0', NULL, '5', '2021-08-20 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (49, '杨澳宇', '14:50:21', NULL, '14:51:08', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (49, '小杨', '14:50:21', NULL, '14:51:08', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (50, '测试用户', '14:50:26', NULL, '14:50:37', '0.5', NULL, '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (51, '杨澳宇', '15:02:49', NULL, '15:03:02', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (51, '小杨', '15:02:49', NULL, '15:03:02', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (52, '测试用户', '15:03:17', NULL, '15:12:09', '0.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (53, '灵智', '15:03:28', NULL, '15:12:50', '0.5', '7', '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (54, '测试用户', '15:12:20', NULL, '15:12:45', '0.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (55, '测试用户', '15:13:03', NULL, '15:14:57', '0.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (56, '灵智', '15:13:22', NULL, '15:15:00', '0.5', '8', '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (57, '杨澳宇', '15:14:27', NULL, '15:14:42', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (57, '小杨', '15:14:27', NULL, '15:14:42', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (58, '测试用户', '15:15:10', NULL, '15:16:34', '0.5', '7', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (59, '灵智', '15:15:19', NULL, '15:16:37', '0.5', '8', '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (60, '测试用户', '15:16:49', NULL, '15:18:49', '0.5', '7', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
@@ -797,12 +813,12 @@ INSERT INTO `sign_log` VALUES (62, '测试用户', '15:32:58', NULL, '15:33:07',
 INSERT INTO `sign_log` VALUES (63, '测试用户', '15:34:17', NULL, '15:34:31', '0.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (64, '灵智', '15:34:23', NULL, '15:55:00', '0.5', '7', '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (65, '测试用户', '15:35:01', NULL, '15:54:55', '0.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (66, '杨澳宇', '15:38:12', NULL, '15:43:01', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (67, '杨澳宇', '15:45:17', NULL, '15:49:11', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (68, '杨澳宇', '15:49:50', NULL, '15:50:05', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (69, '杨澳宇', '15:51:16', NULL, '15:51:29', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (66, '小杨', '15:38:12', NULL, '15:43:01', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (67, '小杨', '15:45:17', NULL, '15:49:11', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (68, '小杨', '15:49:50', NULL, '15:50:05', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (69, '小杨', '15:51:16', NULL, '15:51:29', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (70, '测试用户', '15:55:10', NULL, '15:58:18', '0.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (71, '杨澳宇', '15:57:48', NULL, '15:58:00', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (71, '小杨', '15:57:48', NULL, '15:58:00', '0.5', '8', '6', '2021-08-21 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (72, '灵智', '15:58:11', NULL, '15:58:19', '0.5', '8', '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (73, '测试用户', '15:59:14', NULL, '15:59:27', '0.5', '7', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (74, '灵智', '15:59:20', NULL, '15:59:27', '0.5', '8', '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
@@ -813,17 +829,17 @@ INSERT INTO `sign_log` VALUES (78, '灵智', '16:12:13', NULL, '16:12:26', '0.5'
 INSERT INTO `sign_log` VALUES (79, '测试用户', '16:16:47', NULL, '16:16:53', '0.5', '7', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (80, '测试用户', '18:47:39', NULL, '21:10:09', '2.5', '8', '5', '2021-08-21 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (81, '灵智', '20:42:13', NULL, '21:03:25', '0.5', NULL, '5', '2021-08-21 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (82, '杨澳宇', '09:40:48', NULL, '09:41:01', '0.5', '8', '6', '2021-08-22 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (82, '小杨', '09:40:48', NULL, '09:41:01', '0.5', '8', '6', '2021-08-22 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (83, '测试用户', '09:41:19', NULL, '09:41:26', '0.5', '8', '5', '2021-08-22 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (84, '测试用户', '14:01:28', NULL, '14:06:30', '0.5', NULL, '5', '2021-08-22 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (85, '测试用户', '14:08:11', NULL, '14:08:15', '0.5', NULL, '5', '2021-08-22 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (86, '测试用户', '14:08:24', NULL, '14:33:53', '0.5', NULL, '5', '2021-08-22 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (87, '李灵智', '14:18:15', '【系统强制退出】null', '22:00:00', '8.0', NULL, '6', '2021-08-22 00:00:00', 1, NULL, 3, 1);
-INSERT INTO `sign_log` VALUES (88, '随便找的boy', '14:33:05', NULL, '14:33:37', '0.5', '7', '6', '2021-08-22 00:00:00', 3, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (87, '小李', '14:18:15', '【系统强制退出】null', '22:00:00', '8.0', NULL, '6', '2021-08-22 00:00:00', 1, NULL, 3, 1);
+INSERT INTO `sign_log` VALUES (88, '王思聪', '14:33:05', NULL, '14:33:37', '0.5', '7', '6', '2021-08-22 00:00:00', 3, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (89, '灵智', '14:33:49', '【系统强制退出】null', '22:00:00', '7.5', '7', '5', '2021-08-22 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (90, '测试用户', '20:27:03', NULL, '20:33:46', '0.5', '7', '5', '2021-08-22 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (91, '测试用户', '20:35:46', '【系统强制退出】null', '22:00:00', '1.5', '8', '5', '2021-08-22 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (92, '杨澳宇', '18:58:29', NULL, '18:58:42', '0.5', '8', '6', '2021-08-23 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (92, '小杨', '18:58:29', NULL, '18:58:42', '0.5', '8', '6', '2021-08-23 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (93, '测试用户', '18:58:52', NULL, '18:59:02', '0.5', '7', '5', '2021-08-23 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (94, '灵智', '18:58:59', NULL, '18:59:06', '0.5', '8', '5', '2021-08-23 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (95, '测试用户', '19:08:14', NULL, '19:08:20', '0.5', '8', '5', '2021-08-23 00:00:00', 4, NULL, 4, 2);
@@ -832,20 +848,20 @@ INSERT INTO `sign_log` VALUES (97, '测试用户', '19:08:26', NULL, '19:08:32',
 INSERT INTO `sign_log` VALUES (98, '灵智', '19:08:30', NULL, '19:08:34', '0.5', '8', '5', '2021-08-23 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (99, '测试用户', '19:08:44', '【系统强制退出】null', '22:00:00', '3.0', '8', '5', '2021-08-23 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (100, '灵智', '19:08:47', '【系统强制退出】null', '22:00:00', '3.0', '7', '5', '2021-08-23 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (101, '杨澳宇', '19:13:56', NULL, '19:51:06', '1.0', '8', '6', '2021-08-23 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (102, '杨澳宇', '21:49:11', NULL, '21:49:23', '0.5', '8', '6', '2021-08-23 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (103, '杨澳宇', '08:56:59', NULL, '08:57:56', '0.5', '8', '6', '2021-08-24 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (101, '小杨', '19:13:56', NULL, '19:51:06', '1.0', '8', '6', '2021-08-23 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (102, '小杨', '21:49:11', NULL, '21:49:23', '0.5', '8', '6', '2021-08-23 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (103, '小杨', '08:56:59', NULL, '08:57:56', '0.5', '8', '6', '2021-08-24 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (104, '测试用户', '08:58:15', NULL, '08:58:23', '0.5', '8', '5', '2021-08-24 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (105, '杨澳宇', '08:59:21', NULL, '11:07:58', '2.5', '8', '6', '2021-08-24 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (105, '小杨', '08:59:21', NULL, '11:07:58', '2.5', '8', '6', '2021-08-24 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (106, '测试用户', '09:04:45', NULL, '09:16:54', '0.5', '7', '5', '2021-08-25 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (107, '杨澳宇', '09:13:01', NULL, '09:13:41', '0.5', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (108, '杨澳宇', '09:14:34', NULL, '09:14:47', '0.5', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (109, '杨澳宇', '09:16:26', NULL, '09:16:42', '0.5', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (107, '小杨', '09:13:01', NULL, '09:13:41', '0.5', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (108, '小杨', '09:14:34', NULL, '09:14:47', '0.5', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (109, '小杨', '09:16:26', NULL, '09:16:42', '0.5', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (110, '灵智', '09:16:50', NULL, '09:16:56', '0.5', '8', '5', '2021-08-25 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (111, '测试用户', '09:17:06', NULL, '09:17:13', '0.5', '7', '5', '2021-08-25 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (112, '灵智', '09:17:10', NULL, '09:17:14', '0.5', '8', '5', '2021-08-25 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (113, '测试用户', '09:17:19', NULL, '09:17:22', '0.5', '8', '5', '2021-08-25 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (114, '杨澳宇', '12:18:41', '【系统强制退出】null', '22:00:00', '10.0', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (114, '小杨', '12:18:41', '【系统强制退出】null', '22:00:00', '10.0', '8', '6', '2021-08-25 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (115, '测试用户', '21:22:06', NULL, '21:22:18', '0.5', '8', '5', '2021-08-30 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (116, '灵智', '21:22:12', NULL, '21:22:21', '0.5', '7', '5', '2021-08-30 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (117, '测试用户', '21:22:29', NULL, '21:22:40', '0.5', '8', '5', '2021-08-30 00:00:00', 4, NULL, 4, 2);
@@ -854,32 +870,32 @@ INSERT INTO `sign_log` VALUES (119, '测试用户', '21:22:50', NULL, '21:23:02'
 INSERT INTO `sign_log` VALUES (120, '灵智', '21:22:56', NULL, '21:23:25', '0.5', '8', '5', '2021-08-30 00:00:00', 5, NULL, 3, 2);
 INSERT INTO `sign_log` VALUES (121, '测试用户', '21:23:10', NULL, '21:23:22', '0.5', '8', '5', '2021-08-30 00:00:00', 4, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (122, '测试用户', '21:23:31', '【系统强制退出】null', '22:00:00', '1.0', '8', '5', '2021-08-30 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (123, '杨澳宇', '21:57:26', '【系统强制退出】null', '22:00:00', '0.5', '8', '6', '2021-08-30 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (124, '杨澳宇', '19:51:05', NULL, '19:53:19', '0.5', '8', '6', '2021-08-31 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (125, '测试用户', '19:51:11', NULL, '19:51:24', '0.5', '8', '5', '2021-08-31 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (126, '灵智', '19:51:15', NULL, '19:51:26', '0.5', '7', '5', '2021-08-31 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (127, '测试用户', '19:51:30', NULL, '19:51:36', '0.5', '8', '5', '2021-08-31 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (128, '灵智', '19:51:34', NULL, '19:51:37', '0.5', '8', '5', '2021-08-31 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (129, '测试用户', '19:51:42', NULL, '19:51:44', '0.5', '8', '5', '2021-08-31 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (130, '测试用户', '19:51:49', NULL, '19:51:56', '0.5', '8', '5', '2021-08-31 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (131, '灵智', '19:51:54', NULL, '19:51:58', '0.5', '7', '5', '2021-08-31 00:00:00', 5, NULL, 3, 2);
-INSERT INTO `sign_log` VALUES (132, '测试用户', '13:10:32', NULL, '13:10:42', '0.5', '7', '5', '2021-09-05 00:00:00', 4, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (133, '随便找的boy', '18:34:57', '【系统强制退出】null', '22:00:00', '3.5', NULL, '6', '2021-09-07 00:00:00', 3, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (134, '杨澳宇', '15:04:37', NULL, NULL, NULL, '8', '6', '2021-09-19 00:00:00', 2, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (135, '随便找的boy', '10:12:03', NULL, NULL, NULL, '7', '6', '2021-09-29 00:00:00', 3, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (136, '测试用户', '15:51:43', NULL, NULL, NULL, '8', '5', '2021-10-02 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (123, '小杨', '21:57:26', '【系统强制退出】null', '22:00:00', '0.5', '8', '6', '2021-08-30 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (124, '小杨', '19:51:05', NULL, '19:53:19', '0.5', '8', '6', '2021-08-31 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (125, '测试用户', '19:51:11', NULL, '19:51:24', '0.5', '8', '5', '2023-04-19 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (126, '灵智', '19:51:15', NULL, '19:51:26', '0.5', '7', '5', '2023-04-19 00:00:00', 5, NULL, 3, 2);
+INSERT INTO `sign_log` VALUES (127, '测试用户', '19:51:30', NULL, '19:51:36', '0.5', '8', '5', '2023-04-19 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (128, '灵智', '19:51:34', NULL, '19:51:37', '0.5', '8', '5', '2023-04-19 00:00:00', 5, NULL, 3, 2);
+INSERT INTO `sign_log` VALUES (129, '测试用户', '19:51:42', NULL, '19:51:44', '0.5', '8', '5', '2023-04-19 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (130, '测试用户', '19:51:49', NULL, '19:51:56', '0.5', '8', '5', '2023-04-19 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (131, '灵智', '19:51:54', NULL, '19:51:58', '0.5', '7', '5', '2023-04-19 00:00:00', 5, NULL, 3, 2);
+INSERT INTO `sign_log` VALUES (132, '测试用户', '13:10:32', NULL, '13:10:42', '0.5', '7', '5', '2023-04-20 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (133, '王思聪', '18:34:57', '【系统强制退出】null', '22:00:00', '3.5', NULL, '6', '2023-04-20 00:00:00', 3, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (134, '小杨', '15:04:37', NULL, NULL, NULL, '8', '6', '2023-04-20 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (135, '王思聪', '10:12:03', NULL, NULL, NULL, '7', '6', '2023-04-20 00:00:00', 3, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (136, '测试用户', '15:51:43', NULL, NULL, NULL, '8', '5', '2023-04-20 00:00:00', 4, NULL, 4, 2);
 
 -- ----------------------------
 -- Table structure for system_variables
 -- ----------------------------
 DROP TABLE IF EXISTS `system_variables`;
 CREATE TABLE `system_variables`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `my_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `my_value` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `my_key` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `my_value` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of system_variables
@@ -900,80 +916,84 @@ INSERT INTO `system_variables` VALUES (12, 'wxPushGroupId', 'signIn', '微信推
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `real_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0',
-  `touch_id` int(11) NULL DEFAULT NULL,
-  `user_group` int(11) NULL DEFAULT 5,
-  `now_sign_id` int(11) NULL DEFAULT NULL,
-  `face_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `unit` int(11) NULL DEFAULT 0,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `telphone` int(11) NULL DEFAULT NULL,
-  `group_id` bigint(20) NULL DEFAULT NULL,
-  `expired_time` datetime NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `real_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT '0',
+  `touch_id` int(0) NULL DEFAULT NULL,
+  `user_group` int(0) NULL DEFAULT 5,
+  `now_sign_id` int(0) NULL DEFAULT NULL,
+  `face_id` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `unit` int(0) NULL DEFAULT 0,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `telphone` int(0) NULL DEFAULT NULL,
+  `group_id` bigint(0) NULL DEFAULT NULL,
+  `expired_time` datetime(0) NULL DEFAULT NULL,
   `sign_state` bit(1) NULL DEFAULT b'0',
-  `class_group` bigint(20) NULL DEFAULT 0,
-  `unit_group` bigint(20) NULL DEFAULT 0,
+  `class_group` bigint(0) NULL DEFAULT 0,
+  `unit_group` bigint(0) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK5ixd8ou7x5sln7b00u8qpf7il`(`group_id`) USING BTREE,
   CONSTRAINT `FK5ixd8ou7x5sln7b00u8qpf7il` FOREIGN KEY (`group_id`) REFERENCES `user_group` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '李灵智', '1', 1, 6, NULL, '9e1568d5168bf118eeb377b27b8e023c', 1, '1308964967@qq.com', 2147483647, 2, '2021-08-28 14:58:59', b'0', 3, 1);
-INSERT INTO `user` VALUES (2, '杨澳宇', '1', NULL, 6, NULL, '42d84e2cb033dfc3ae1b2d943abd13b2', 2, NULL, NULL, NULL, '2022-09-30 19:49:41', b'1', 4, 2);
-INSERT INTO `user` VALUES (3, '随便找的boy', '1', NULL, 6, NULL, '88a737d211370886a1d03c7a3adf2823', 2, NULL, NULL, NULL, '2021-10-30 20:38:36', b'1', 4, 2);
+INSERT INTO `user` VALUES (1, '小李', '1', 1, 6, NULL, '9e1568d5168bf118eeb377b27b8e023c', 1, '1308964967@qq.com', 2147483647, 2, '2021-08-28 14:58:59', b'0', 3, 1);
+INSERT INTO `user` VALUES (2, '小杨', '1', NULL, 6, NULL, '42d84e2cb033dfc3ae1b2d943abd13b2', 2, '110@qq.com', 110, NULL, '2022-09-30 19:49:41', b'1', 4, 2);
+INSERT INTO `user` VALUES (3, '王思聪', '0', NULL, 6, NULL, '88a737d211370886a1d03c7a3adf2823', 2, '666@qq.com', 666, NULL, '2021-10-30 20:38:36', b'1', 4, 2);
 INSERT INTO `user` VALUES (4, '测试用户', '0', NULL, 5, NULL, NULL, 2, NULL, NULL, NULL, '2022-09-05 19:49:53', b'1', 4, 2);
-INSERT INTO `user` VALUES (5, '灵智', '0', NULL, 5, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-30 19:50:06', b'0', 3, 2);
+INSERT INTO `user` VALUES (5, '小智', '0', NULL, 5, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-30 19:50:06', b'0', 3, 2);
 
 -- ----------------------------
 -- Table structure for user_group
 -- ----------------------------
 DROP TABLE IF EXISTS `user_group`;
 CREATE TABLE `user_group`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `group_class` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `message` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `group_class` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `message` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_group
 -- ----------------------------
 INSERT INTO `user_group` VALUES (1, '0', '后勤集团', '后勤部');
 INSERT INTO `user_group` VALUES (2, '0', '开发网站', '开发部');
-INSERT INTO `user_group` VALUES (3, '1', 'Java课程设计', '李碧涛老师课题组');
-INSERT INTO `user_group` VALUES (4, '1', '暑期实践答辩设计', '李翔老师课题组');
-INSERT INTO `user_group` VALUES (5, '2', '访客', '访客');
-INSERT INTO `user_group` VALUES (6, '2', '学生', '学生');
+INSERT INTO `user_group` VALUES (3, '1', 'Java课程设计', '李老师课题组');
+INSERT INTO `user_group` VALUES (4, '1', '暑期实践答辩设计', '王老师课题组');
+INSERT INTO `user_group` VALUES (5, '2', '访客(仅手动签到)', '访客');
+INSERT INTO `user_group` VALUES (6, '2', '学生(人脸识别打卡)', '学生');
 INSERT INTO `user_group` VALUES (7, '3', '进行实验内容', '实验');
-INSERT INTO `user_group` VALUES (8, '3', '其他', '其他');
+INSERT INTO `user_group` VALUES (8, '3', '进行访问', '访问');
 INSERT INTO `user_group` VALUES (9, '2', '工作人员', '工作人员');
+INSERT INTO `user_group` VALUES (10, '0', 'AI算法相关', 'AI算法部');
+INSERT INTO `user_group` VALUES (11, '3', '进行自习', '自习');
+INSERT INTO `user_group` VALUES (12, '3', '其它事情', '其它');
+INSERT INTO `user_group` VALUES (13, '3', '后勤人员进行维修等工作', '维修');
 
 -- ----------------------------
 -- Table structure for visitor
 -- ----------------------------
 DROP TABLE IF EXISTS `visitor`;
 CREATE TABLE `visitor`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `expired_time` datetime NULL DEFAULT NULL,
-  `real_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `telphone` int(11) NULL DEFAULT NULL,
-  `visitor_group` int(11) NULL DEFAULT NULL,
+  `id` bigint(0) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `expired_time` datetime(0) NULL DEFAULT NULL,
+  `real_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
+  `telphone` int(0) NULL DEFAULT NULL,
+  `visitor_group` int(0) NULL DEFAULT NULL,
   `sign_state` bit(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of visitor
 -- ----------------------------
-INSERT INTO `visitor` VALUES (1, NULL, '2021-08-14 13:01:25', '测试', 3, 5, b'1');
-INSERT INTO `visitor` VALUES (2, NULL, '2021-08-14 13:01:25', 'llz', NULL, 5, b'1');
+INSERT INTO `visitor` VALUES (1, NULL, '2021-08-14 13:01:25', '访客-王老师', 3, 5, b'1');
+INSERT INTO `visitor` VALUES (2, NULL, '2021-08-14 13:01:25', '李老师', NULL, 5, b'1');
 
 -- ----------------------------
 -- View structure for signlog_detail

@@ -1,8 +1,33 @@
-> **！！客户端的源码目前已经丢失了，本仓库只有后端+后端管理的前台，客户端只有打包好的exe(修改不了内容)在[release](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)里面！**
+> ** 客户端代码已经更新 **
+>
+# 快速开始
+> 默认账号
+- 管理员 admin admin
+- 默认人脸(手机找个照片然后对着电脑就行)[王思聪、蔡徐坤、马云]
 
-> **！！客户端的源码目前已经丢失了，本仓库只有后端+后端管理的前台，客户端只有打包好的exe(修改不了内容)在[release](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)里面！**
+> 项目页面
+1. 管理员界面 http://localhost:8080
+2. 客户端界面 http://localhost:8080/front
+3. swagger接口界面 http://localhost:8080/swagger-ui.html#/
 
-> **！！客户端的源码目前已经丢失了，本仓库只有后端+后端管理的前台，客户端只有打包好的exe(修改不了内容)在[release](https://github.com/404name/face-check-in-system/releases/tag/1.0.0)里面！**
+> 项目启动
+1. 创建数据库face_sign_in并导入/src/face_sign_in.sql
+2. 修改/src/main/resources/application-dev.yml里面的配置
+3. 对于idea需要配置lombok插件&jdk1.8 | project structure里面level设置成8及以上
+4. 使用idea maven 刷新后右上角启动即可
+
+> 功能使用
+1. 注册人脸：先创建新用户再前往录入界面录入(不能太模糊，也可以使用明星的照片)
+2. 更新人脸：选择已经录入的人脸然后覆盖
+3. 录入访客：后端管理界面手动录入或者excel导入
+4. 推送手机：前往http://pushplus.hxtrip.com/send配置对应的key，去后端管理配置出覆盖
+5. 百度人脸识别：本项目已经接入了我的百度人脸库，如需要自己创建，前往百度控制中心申请覆盖application的配置
+
+> 项目开发
+1. 后端基于erupt框架
+2. 后端管理页面也基于erupt框架自动生成，开发请前往erupt官网阅读文档
+3. 客户端基于uniapp开发，源码打包发布在项目的release里面，将项目导入hbuilder即可直接点击运行，打包后将产物覆盖front文件夹即可
+
 
 # 一 、项目背景及需求分析
 

@@ -28,4 +28,8 @@ public class RouteController {
     public String getUpdate(){
         return "updateface";
     }
+//    @GetMapping("/front")
+//    public String getFront(){
+//        return "index";
+//    }
 }

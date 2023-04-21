@@ -56,7 +56,7 @@
                                     "header": {
                                         "title": "欢迎使用",
                                         "subTitle": "通用初始化流程",
-                                        "avatar": "https://gitee.com/N404name/gitee-img/raw/master/myImg/xlk9wv%20(2).jpg",
+                                        "avatar": "https://404name.oss-cn-shanghai.aliyuncs.com/cg/xlk9wv%20(2).jpg",
                                         "desc": "1. 管理员创建用户组<br/>2. 管理员导入用户/游客<br/>3. 仅用户可录入人脸<br/>4. 录入人脸的用户/游客可以打卡<br/>5. 管理员能修改默认结束时间"
                                     },
                                     "body": [
@@ -79,7 +79,18 @@
                                                         "type": "static",
                                                         "label": "描述",
                                                         "name": "详细使用",
-                                                        "description": "信息详细<br/>\n信息详细<br/>\n信息详细<br/>\n信息详细信息详细<br/>\n信息详细<br/>\n信息详细<br/>"
+                                                        "description": "> 默认账号<br\>\n" +
+                                                            "- 管理员 admin admin<br\>\n" +
+                                                            "<br\>\n" +
+                                                            "> 项目启动<br\>\n" +
+                                                            "1. 创建数据库face_sign_in并导入/src/face_sign_in.sql<br\>\n" +
+                                                            "2. 修改/src/main/resources/application-dev.yml里面的配置<br\>\n" +
+                                                            "3. 对于idea需要配置lombok插件&jdk1.8 | project structure里面level设置成8及以上<br\>\n" +
+                                                            "4. 使用idea maven 刷新后右上角启动即可<br\>\n" +
+                                                            "> 人脸录入<br\>\n" +
+                                                            "1. 进入后端管理系统，选择录入人脸(首先得创建新用户)<br\>\n" +
+                                                            "2. 除了访客类型的用户，其它用户都可以录入人脸信息<br\>\n" +
+                                                            "3. 录入成功后请问客户端使用人脸签到即可匹配对应的信息"
                                                     }
                                                 ],
                                                 "type": "dialog",

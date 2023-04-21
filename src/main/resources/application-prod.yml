@@ -12,19 +12,19 @@ swagger:
 # 数据库及jpa
 spring:
   datasource:
-    url: jdbc:mysql://47.XXX.203.60:3306/face?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: face
-    password: 123456
+    url: jdbc:mysql://hw.404name.top:3306/face?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1308964967frank
     hikari:
       max-lifetime: 50000
       maximum-pool-size: 10
       minimum-idle: 3
       connection-test-query: SELECT 1
   redis:
-    host: XXXXX.top
+    host: hw.404name.top
     database: 0 # Redis数拙库索引(默认为0 )
     port: 6379 # Redis服务器连接端口
-    password: # Redis服务器连接密码 (默认为空)
+    password: 13979933306 # Redis服务器连接密码 (默认为空)
     jedis:
       pool:
         max-active: 8 #连接池最大连接数(使用负值表示没有限制)
