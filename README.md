@@ -9,7 +9,7 @@
 
 > 项目页面
 1. 管理员界面 http://localhost:8080
-2. 客户端界面 http://localhost:8080/front
+2. 客户端界面 http://localhost:8080/front.html
 3. swagger接口界面 http://localhost:8080/swagger-ui.html#/
 
 > 项目启动
