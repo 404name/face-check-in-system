@@ -152,11 +152,18 @@ public class FaceController {
         User user  = userService.find(userId);
         //库里面没有此人头像
         if(search.isNull("result")){
+           // 你这里的json解析不到百度发挥的result里面的人脸token
             JSONObject jsonObject = baiduUtil.registerFace(img, user);
-            JSONObject result = jsonObject.getJSONObject("result");
-            if(result.isNull("result")){
+            System.out.println("==>" + jsonObject);
+            if(jsonObject.isNull("result")){
                 return Result.errorMsg(jsonObject.getString("error_msg"));
             }
+            JSONObject result = jsonObject.getJSONObject("result");
+            System.out.println("==>" + result);
+            if(result.isNull("face_token")){
+                return Result.errorMsg("请换个人脸再试");
+            }
+            // 没有跟数据库绑定走到下面来,我帮你看下
             user.setFaceId(result.getString("face_token"));
             user.setStatus(true);
             User user1 = userService.addAndUpdate(user);
