@@ -4,14 +4,14 @@
  Source Server         : 华为服务器
  Source Server Type    : MySQL
  Source Server Version : 80030
- Source Host           : xx.404xxxx.top:3306
+ Source Host           : hw.xxxxx.top:3306
  Source Schema         : face
 
  Target Server Type    : MySQL
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 20/04/2023 19:04:12
+ Date: 29/04/2023 16:49:40
 */
 
 SET NAMES utf8mb4;
@@ -164,7 +164,7 @@ CREATE TABLE `e_upms_login_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKjqnr9oel32kajm6bpvqwomv6m`(`erupt_user_id`) USING BTREE,
   CONSTRAINT `FKjqnr9oel32kajm6bpvqwomv6m` FOREIGN KEY (`erupt_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 119 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 126 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_login_log
@@ -288,6 +288,13 @@ INSERT INTO `e_upms_login_log` VALUES (116, 'Chrome 8 88', 'Computer', '61.136.1
 INSERT INTO `e_upms_login_log` VALUES (117, 'Chrome 9 92', 'Computer', '61.136.151.251', '2021-10-13 11:13:01', '中国|0|湖北省|宜昌市|电信', 'Windows 10', '2iYoKGhSJN9piB5J', 1);
 INSERT INTO `e_upms_login_log` VALUES (118, 'Chrome 9 92', 'Computer', '117.150.6.209', '2021-10-26 21:06:21', '中国|0|湖北省|宜昌市|移动', 'Windows 10', 'Vfphc2HhUZB8nYDQ', 1);
 INSERT INTO `e_upms_login_log` VALUES (119, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-20 18:47:03', '0|0|0|内网IP|内网IP', 'Windows 10', 'EeMiWu0ELZbHpY0k', 3);
+INSERT INTO `e_upms_login_log` VALUES (120, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-20 19:16:25', '0|0|0|内网IP|内网IP', 'Windows 10', 'X1rAaKGBb6cmroZZ', 3);
+INSERT INTO `e_upms_login_log` VALUES (121, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-21 13:08:48', '0|0|0|内网IP|内网IP', 'Windows 10', 'jf33uultHw6lbVqu', 3);
+INSERT INTO `e_upms_login_log` VALUES (122, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-21 19:29:08', '0|0|0|内网IP|内网IP', 'Windows 10', 'hbaVP0CircTBGdVi', 3);
+INSERT INTO `e_upms_login_log` VALUES (123, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-21 19:37:46', '0|0|0|内网IP|内网IP', 'Windows 10', 'sBGwjK4zyMtAtlkS', 3);
+INSERT INTO `e_upms_login_log` VALUES (124, 'Chrome 10 105', 'Computer', '10.98.184.1', '2023-04-21 20:53:55', '0|0|0|内网IP|内网IP', 'Windows 10', 'cL0W4oVlCh9kCc4s', 3);
+INSERT INTO `e_upms_login_log` VALUES (125, 'Chrome 9 96', 'Computer', '172.24.92.94', '2023-04-28 17:19:44', '0|0|0|内网IP|内网IP', 'Windows 10', 'ZTD3HDKJCxSzSfdB', 2);
+INSERT INTO `e_upms_login_log` VALUES (126, 'Chrome 10 105', 'Computer', '2.0.0.1', '2023-04-29 16:44:32', '法国|0|Loire|0|橘子电信', 'Windows 10', 'MijtOC1F30YJ1eAO', 3);
 
 -- ----------------------------
 -- Table structure for e_upms_menu
@@ -359,7 +366,7 @@ CREATE TABLE `e_upms_operate_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK27xepkxthq9snq3yk6k7iad33`(`erupt_user_id`) USING BTREE,
   CONSTRAINT `FK27xepkxthq9snq3yk6k7iad33` FOREIGN KEY (`erupt_user_id`) REFERENCES `e_upms_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 217 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 256 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of e_upms_operate_log
@@ -595,6 +602,30 @@ INSERT INTO `e_upms_operate_log` VALUES (228, '修改 | 单位及课题组管理
 INSERT INTO `e_upms_operate_log` VALUES (229, '新增 | 单位及课题组管理', '2023-04-20 18:55:33', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"3\",\"name\":\"自习\",\"message\":\"进行自习\"}', b'1', 228, 3);
 INSERT INTO `e_upms_operate_log` VALUES (230, '新增 | 单位及课题组管理', '2023-04-20 18:55:42', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"3\",\"name\":\"其它\",\"message\":\"其它事情\"}', b'1', 230, 3);
 INSERT INTO `e_upms_operate_log` VALUES (231, '新增 | 单位及课题组管理', '2023-04-20 18:56:08', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/Group', 'POST', '{\"groupClass\":\"3\",\"name\":\"维修\",\"message\":\"后勤人员进行维修等工作\"}', b'1', 235, 3);
+INSERT INTO `e_upms_operate_log` VALUES (232, '修改 | 用户信息', '2023-04-20 19:17:09', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"王思聪\",\"signState\":true,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":666,\"email\":\"666@qq.com\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2021-10-30 20:38:36\",\"id\":3}', b'1', 359, 3);
+INSERT INTO `e_upms_operate_log` VALUES (233, '修改 | 用户信息', '2023-04-20 19:17:49', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"王思聪\",\"signState\":true,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"9\",\"telphone\":666,\"email\":\"666@qq.com\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2021-10-30 20:38:36\",\"id\":3}', b'1', 281, 3);
+INSERT INTO `e_upms_operate_log` VALUES (234, '新增 | 用户信息', '2023-04-21 13:09:20', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'POST', '{\"realName\":\"访客xz\",\"signState\":false,\"status\":false,\"unitGroup\":\"1\",\"classGroup\":\"0\",\"userGroup\":\"5\",\"expiredTime\":\"2025-04-20 13:09:13\"}', b'1', 416, 3);
+INSERT INTO `e_upms_operate_log` VALUES (235, '修改 | 用户信息', '2023-04-21 13:09:30', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"测试用户\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2022-09-05 19:49:53\",\"id\":4}', b'1', 464, 3);
+INSERT INTO `e_upms_operate_log` VALUES (236, '修改 | 用户信息', '2023-04-21 13:10:28', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"访客xz\",\"signState\":false,\"status\":false,\"unitGroup\":\"1\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2025-04-20 13:09:13\",\"id\":6}', b'1', 400, 3);
+INSERT INTO `e_upms_operate_log` VALUES (237, '修改 | 用户信息', '2023-04-21 14:13:12', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"测试用户\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2030-12-06 19:49:53\",\"id\":4}', b'1', 299, 3);
+INSERT INTO `e_upms_operate_log` VALUES (238, '修改 | 用户信息', '2023-04-21 14:13:19', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小智\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"3\",\"userGroup\":\"5\",\"expiredTime\":\"2021-09-30 19:50:06\",\"id\":5}', b'1', 267, 3);
+INSERT INTO `e_upms_operate_log` VALUES (239, '修改 | 用户信息', '2023-04-21 14:13:27', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"王思聪\",\"signState\":true,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"9\",\"telphone\":666,\"email\":\"666@qq.com\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2021-10-30 20:38:36\",\"id\":3}', b'1', 263, 3);
+INSERT INTO `e_upms_operate_log` VALUES (240, '修改 | 用户信息', '2023-04-21 14:13:34', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":true,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2022-09-30 19:49:41\",\"id\":2}', b'1', 284, 3);
+INSERT INTO `e_upms_operate_log` VALUES (241, '修改 | 用户信息', '2023-04-21 14:13:40', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小李\",\"signState\":false,\"status\":true,\"unitGroup\":\"1\",\"classGroup\":\"3\",\"userGroup\":\"6\",\"telphone\":2147483647,\"email\":\"1308964967@qq.com\",\"faceId\":\"9e1568d5168bf118eeb377b27b8e023c\",\"expiredTime\":\"2021-08-28 14:58:59\",\"id\":1}', b'1', 460, 3);
+INSERT INTO `e_upms_operate_log` VALUES (242, '修改 | 用户信息', '2023-04-21 14:13:45', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":true,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2022-09-30 19:49:41\",\"id\":2}', b'1', 286, 3);
+INSERT INTO `e_upms_operate_log` VALUES (243, '修改 | 用户信息', '2023-04-21 14:27:05', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小智\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"3\",\"userGroup\":\"5\",\"expiredTime\":\"2021-09-30 19:50:06\",\"id\":5}', b'1', 297, 3);
+INSERT INTO `e_upms_operate_log` VALUES (244, '修改 | 用户信息', '2023-04-21 14:27:34', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小智\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"3\",\"userGroup\":\"5\",\"expiredTime\":\"2031-09-26 19:50:06\",\"id\":5}', b'1', 303, 3);
+INSERT INTO `e_upms_operate_log` VALUES (245, '修改 | 用户信息', '2023-04-21 14:28:40', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"测试用户\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2030-12-06 19:49:53\",\"id\":4}', b'1', 296, 3);
+INSERT INTO `e_upms_operate_log` VALUES (246, '修改 | 用户信息', '2023-04-21 19:29:20', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小李\",\"signState\":false,\"status\":true,\"unitGroup\":\"1\",\"classGroup\":\"3\",\"userGroup\":\"6\",\"telphone\":2147483647,\"email\":\"1308964967@qq.com\",\"faceId\":\"9e1568d5168bf118eeb377b27b8e023c\",\"expiredTime\":\"2030-08-28 14:58:59\",\"id\":1}', b'1', 317, 3);
+INSERT INTO `e_upms_operate_log` VALUES (247, '修改 | 用户信息', '2023-04-21 19:29:28', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":true,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2030-09-26 19:49:41\",\"id\":2}', b'1', 289, 3);
+INSERT INTO `e_upms_operate_log` VALUES (248, '修改 | 用户信息', '2023-04-21 19:29:34', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"王思聪\",\"signState\":true,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"9\",\"telphone\":666,\"email\":\"666@qq.com\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2030-10-12 20:38:36\",\"id\":3}', b'1', 308, 3);
+INSERT INTO `e_upms_operate_log` VALUES (249, '修改 | 用户信息', '2023-04-21 19:30:29', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"王思聪\",\"signState\":false,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"9\",\"telphone\":666,\"email\":\"666@qq.com\",\"faceId\":\"88a737d211370886a1d03c7a3adf2823\",\"expiredTime\":\"2030-10-12 20:38:36\",\"id\":3}', b'1', 306, 3);
+INSERT INTO `e_upms_operate_log` VALUES (250, '修改 | 用户信息', '2023-04-21 19:30:35', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2030-09-26 19:49:41\",\"id\":2}', b'1', 353, 3);
+INSERT INTO `e_upms_operate_log` VALUES (251, '修改 | 用户信息', '2023-04-21 19:30:39', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小杨\",\"signState\":false,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2030-09-26 19:49:41\",\"id\":2}', b'1', 306, 3);
+INSERT INTO `e_upms_operate_log` VALUES (252, '修改 | 用户信息', '2023-04-21 19:37:56', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"马云\",\"signState\":false,\"status\":true,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"6\",\"telphone\":110,\"email\":\"110@qq.com\",\"faceId\":\"42d84e2cb033dfc3ae1b2d943abd13b2\",\"expiredTime\":\"2030-09-26 19:49:41\",\"id\":2}', b'1', 327, 3);
+INSERT INTO `e_upms_operate_log` VALUES (253, '修改 | 用户信息', '2023-04-21 19:38:04', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"蔡徐坤\",\"signState\":false,\"status\":true,\"unitGroup\":\"1\",\"classGroup\":\"3\",\"userGroup\":\"6\",\"telphone\":2147483647,\"email\":\"1308964967@qq.com\",\"faceId\":\"9e1568d5168bf118eeb377b27b8e023c\",\"expiredTime\":\"2030-08-28 14:58:59\",\"id\":1}', b'1', 297, 3);
+INSERT INTO `e_upms_operate_log` VALUES (254, '修改 | 用户信息', '2023-04-21 19:38:14', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小李\",\"signState\":false,\"status\":false,\"unitGroup\":\"2\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2030-12-06 19:49:53\",\"id\":4}', b'1', 305, 3);
+INSERT INTO `e_upms_operate_log` VALUES (255, '修改 | 用户信息', '2023-04-21 19:38:23', NULL, '10.98.184.1', '0|0|0|内网IP|内网IP', 'http://localhost:8080/erupt-api/data/modify/User', 'PUT', '{\"realName\":\"小张\",\"signState\":true,\"status\":false,\"unitGroup\":\"1\",\"classGroup\":\"4\",\"userGroup\":\"5\",\"expiredTime\":\"2025-04-20 13:09:13\",\"id\":6}', b'1', 298, 3);
 
 -- ----------------------------
 -- Table structure for e_upms_org
@@ -758,7 +789,7 @@ CREATE TABLE `sign_log`  (
   `class_group` bigint(0) NULL DEFAULT NULL,
   `unit_group` bigint(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 137 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 153 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sign_log
@@ -883,7 +914,25 @@ INSERT INTO `sign_log` VALUES (132, '测试用户', '13:10:32', NULL, '13:10:42'
 INSERT INTO `sign_log` VALUES (133, '王思聪', '18:34:57', '【系统强制退出】null', '22:00:00', '3.5', NULL, '6', '2023-04-20 00:00:00', 3, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (134, '小杨', '15:04:37', NULL, NULL, NULL, '8', '6', '2023-04-20 00:00:00', 2, NULL, 4, 2);
 INSERT INTO `sign_log` VALUES (135, '王思聪', '10:12:03', NULL, NULL, NULL, '7', '6', '2023-04-20 00:00:00', 3, NULL, 4, 2);
-INSERT INTO `sign_log` VALUES (136, '测试用户', '15:51:43', NULL, NULL, NULL, '8', '5', '2023-04-20 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (136, '测试用户', '15:51:43', NULL, '14:40:06', '-0.5', '8', '5', '2023-04-20 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (137, '访客xz', '13:34:35', NULL, '13:36:35', '0.5', NULL, '5', '2023-04-21 00:00:00', 6, NULL, 4, 1);
+INSERT INTO `sign_log` VALUES (138, '访客xz', '13:37:34', NULL, '14:28:03', '1.0', NULL, '5', '2023-04-21 00:00:00', 6, NULL, 4, 1);
+INSERT INTO `sign_log` VALUES (139, '测试用户', '14:13:51', NULL, NULL, NULL, '12', '5', '2023-04-21 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (140, '小智', '14:27:39', NULL, '14:27:53', '0.5', '13', '5', '2023-04-21 00:00:00', 5, NULL, 3, 2);
+INSERT INTO `sign_log` VALUES (141, '测试用户', '14:28:58', NULL, NULL, NULL, '7', '5', '2023-04-21 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (142, '测试用户', '14:40:34', NULL, '14:40:40', '0.5', '13', '5', '2023-04-21 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (143, '小智', '14:40:50', NULL, '18:58:34', '4.5', '12', '5', '2023-04-21 00:00:00', 5, NULL, 3, 2);
+INSERT INTO `sign_log` VALUES (144, '访客xz', '14:40:57', NULL, '14:41:01', '0.5', '13', '5', '2023-04-21 00:00:00', 6, NULL, 4, 1);
+INSERT INTO `sign_log` VALUES (145, '测试用户', '14:42:16', NULL, '15:40:31', '1.0', '12', '5', '2023-04-21 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (146, '访客xz', '15:42:17', NULL, NULL, NULL, '12', '5', '2023-04-21 00:00:00', 6, NULL, 4, 1);
+INSERT INTO `sign_log` VALUES (147, '王思聪', '19:36:44', NULL, '19:37:16', '0.5', '13', '9', '2023-04-21 00:00:00', 3, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (148, '马云', '19:41:47', NULL, NULL, NULL, '11', '6', '2023-04-21 00:00:00', 2, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (149, '蔡徐坤', '20:53:03', NULL, '20:53:13', '0.5', '12', '6', '2023-04-21 00:00:00', 1, NULL, 3, 1);
+INSERT INTO `sign_log` VALUES (150, '小智', '20:53:20', NULL, '18:09:46', '-2.0', '11', '5', '2023-04-21 00:00:00', 5, NULL, 3, 2);
+INSERT INTO `sign_log` VALUES (151, '小李', '18:09:54', NULL, NULL, NULL, '12', '5', '2023-04-28 00:00:00', 4, NULL, 4, 2);
+INSERT INTO `sign_log` VALUES (152, '蔡徐坤', '18:12:12', NULL, NULL, NULL, '13', '6', '2023-04-28 00:00:00', 1, NULL, 3, 1);
+INSERT INTO `sign_log` VALUES (153, '蔡徐坤', '16:45:40', NULL, NULL, NULL, '13', '6', '2023-04-29 00:00:00', 1, NULL, 3, 1);
+INSERT INTO `sign_log` VALUES (154, '马云', '16:46:08', NULL, NULL, NULL, '13', '6', '2023-04-29 00:00:00', 2, NULL, 4, 2);
 
 -- ----------------------------
 -- Table structure for system_variables
@@ -934,16 +983,17 @@ CREATE TABLE `user`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK5ixd8ou7x5sln7b00u8qpf7il`(`group_id`) USING BTREE,
   CONSTRAINT `FK5ixd8ou7x5sln7b00u8qpf7il` FOREIGN KEY (`group_id`) REFERENCES `user_group` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, '小李', '1', 1, 6, NULL, '9e1568d5168bf118eeb377b27b8e023c', 1, '1308964967@qq.com', 2147483647, 2, '2021-08-28 14:58:59', b'0', 3, 1);
-INSERT INTO `user` VALUES (2, '小杨', '1', NULL, 6, NULL, '42d84e2cb033dfc3ae1b2d943abd13b2', 2, '110@qq.com', 110, NULL, '2022-09-30 19:49:41', b'1', 4, 2);
-INSERT INTO `user` VALUES (3, '王思聪', '0', NULL, 6, NULL, '88a737d211370886a1d03c7a3adf2823', 2, '666@qq.com', 666, NULL, '2021-10-30 20:38:36', b'1', 4, 2);
-INSERT INTO `user` VALUES (4, '测试用户', '0', NULL, 5, NULL, NULL, 2, NULL, NULL, NULL, '2022-09-05 19:49:53', b'1', 4, 2);
-INSERT INTO `user` VALUES (5, '小智', '0', NULL, 5, NULL, NULL, 1, NULL, NULL, NULL, '2021-09-30 19:50:06', b'0', 3, 2);
+INSERT INTO `user` VALUES (1, '蔡徐坤', '1', 1, 6, NULL, 'a9791c9c5a4967dfe21c2e6cfd0d2b9e', 1, '1308964967@qq.com', 2147483647, 2, '2050-08-28 14:58:59', b'0', 3, 1);
+INSERT INTO `user` VALUES (2, '马云', '1', NULL, 6, NULL, '42d84e2cb033dfc3ae1b2d943abd13b2', 2, '110@qq.com', 110, NULL, '2050-08-28 14:58:59', b'0', 4, 2);
+INSERT INTO `user` VALUES (3, '王思聪', '1', NULL, 9, NULL, '88a737d211370886a1d03c7a3adf2823', 2, '666@qq.com', 666, NULL, '2050-08-28 14:58:59', b'0', 4, 2);
+INSERT INTO `user` VALUES (4, '小李', '0', NULL, 5, NULL, NULL, 2, NULL, NULL, NULL, '2050-08-28 14:58:59', b'0', 4, 2);
+INSERT INTO `user` VALUES (5, '小智', '0', NULL, 5, NULL, NULL, 1, NULL, NULL, NULL, '2050-08-28 14:58:59', b'0', 3, 2);
+INSERT INTO `user` VALUES (6, '小张', '0', NULL, 5, NULL, NULL, 0, NULL, NULL, NULL, '2050-08-28 14:58:59', b'0', 4, 1);
 
 -- ----------------------------
 -- Table structure for user_group
@@ -955,7 +1005,7 @@ CREATE TABLE `user_group`  (
   `message` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user_group
