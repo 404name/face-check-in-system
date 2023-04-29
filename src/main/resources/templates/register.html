@@ -132,9 +132,10 @@
                 ans = res.data;
                 console.log(res);
                 if(res.msg == "success"){
-                    alert(res.data.error_msg);
+                    alert(res.data);
                 }else{
-                    alert("人脸不清晰，请重试");
+                    console.log(res.data);
+                    alert("注册失败:" + res.msg);
                 }
             },
             error: (res) => {
